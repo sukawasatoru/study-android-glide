@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2024 sukawasatoru
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:forceHasOverlappingRendering="false"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_request_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:forceHasOverlappingRendering="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:flow_horizontalStyle="packed"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="4dp"
+        app:flow_wrapMode="chain"
+        app:constraint_referenced_ids="button_load_https,button_load_cp_file,button_load_res" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_load_https"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HTTPS"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_load_cp_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CProvider File"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_load_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android Res"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_glide_options"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:forceHasOverlappingRendering="false"
+        app:layout_constraintTop_toBottomOf="@id/flow_request_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:flow_horizontalStyle="packed"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="4dp"
+        app:flow_wrapMode="chain"
+        app:constraint_referenced_ids="switch_circle,switch_skip_mem_cache,switch_skip_disk_cache,switch_use_hardware_bitmaps,switch_use_image_decoder,switch_active_resource_retention_allowed,switch_clear_on_detach" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Circle"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_skip_mem_cache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip mem cache"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_skip_disk_cache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip disk cache"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_use_hardware_bitmaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use Hardware Bitmaps"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_use_image_decoder"
+        style="@style/AppWidget.CompoundButton.MaterialSwitch.Unmodifiable"
+        android:text="Use ImageDecoder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_active_resource_retention_allowed"
+        style="@style/AppWidget.CompoundButton.MaterialSwitch.Unmodifiable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ActiveResourceRetentionAllowed"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_clear_on_detach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="clearOnDetach"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_clear_image_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Set null to ImageView"
+        android:forceHasOverlappingRendering="false"
+        app:layout_constraintTop_toBottomOf="@id/flow_glide_options"
+        app:layout_constraintStart_toStartOf="@id/flow_glide_options"
+        tools:ignore="HardcodedText" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_glide_operation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:forceHasOverlappingRendering="false"
+        app:layout_constraintTop_toBottomOf="@id/button_clear_image_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:flow_horizontalStyle="packed"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="4dp"
+        app:flow_wrapMode="chain"
+        app:constraint_referenced_ids="button_clear_request,button_clear_view_target,button_clear_glide_disk,button_clear_glide_memory" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_clear_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request.clear"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_clear_view_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RequestManager.clear"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_clear_glide_disk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Glide disk"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_clear_glide_memory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Glide memory"
+        android:forceHasOverlappingRendering="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_clear_okhttp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Clear OkHttp"
+        android:forceHasOverlappingRendering="false"
+        app:layout_constraintTop_toBottomOf="@id/flow_glide_operation"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:forceHasOverlappingRendering="false"
+        app:layout_constraintTop_toBottomOf="@id/button_clear_okhttp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@raw/image_3840x2160" />
+</androidx.constraintlayout.widget.ConstraintLayout>
