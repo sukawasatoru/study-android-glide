@@ -112,6 +112,8 @@ class CustomAppGlideModule : AppGlideModule() {
             .setIsActiveResourceRetentionAllowed(app.isActiveResourceRetentionAllowed)
             .setBitmapPool(
                 app.bitmapPoolBytes.let { bitmapPoolBytes ->
+                    // RequestOptions.skipMemoryCache(true) したときは setBitmapPool による
+                    // 効果は確認できない。
                     if (bitmapPoolBytes == 0L) {
                         BitmapPoolAdapter()
                     } else {

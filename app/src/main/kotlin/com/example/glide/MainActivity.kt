@@ -209,6 +209,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun <T> applySwitchRequest(builder: RequestBuilder<T>): RequestBuilder<T> = builder
         .let { if (binding.switchCircle.isChecked) it.circleCrop() else it }
+        // skipMemoryCache(true) を設定すると Total GPU memory usage が下がる。
+        // skipMemoryCache(false) の場合 Total GPU memory usage が上がる一方で purgeable も 増え、
+        // purgeable 分を引くと skipMemoryCache([true|false]) で差がなくなる。
         .let { if (binding.switchSkipMemCache.isChecked) it.skipMemoryCache(true) else it }
         .let {
             if (binding.switchSkipDiskCache.isChecked) {
