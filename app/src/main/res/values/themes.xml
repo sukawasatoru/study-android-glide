@@ -17,4 +17,9 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar" />
+
+    <style name="ThemeOverlay.App.AutoCompleteTextView.FilledBox.Dense.Unmodifiable" parent="ThemeOverlay.Material3.AutoCompleteTextView.FilledBox.Dense">
+        <item name="autoCompleteTextViewStyle">@style/Widget.App.AutoCompleteTextView.FilledBox.Dense.Unmodifiable
+        </item>
+    </style>
 </resources>

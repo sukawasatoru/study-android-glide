@@ -16,7 +16,7 @@ def setupAndroidPlugin = { Project project ->
 
         lint {
             error = ['CheckResult']
-            disable += 'NotificationPermission'
+            disable += ['NotificationPermission', 'NewerVersionAvailable']
         }
 
         signingConfigs {

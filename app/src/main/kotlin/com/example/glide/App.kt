@@ -32,6 +32,7 @@ class App : Application() {
 
     var useImageDecoder = false
     var isActiveResourceRetentionAllowed = false
+    var bitmapPoolBytes = 0L
 
     lateinit var okHttpClient: OkHttpClient
         private set

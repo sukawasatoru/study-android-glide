@@ -19,15 +19,23 @@
 
     <!-- Widget styles -->
 
-    <style name="AppWidget" parent="android:Widget.Material" />
+    <style name="Widget.App.AutoCompleteTextView.FilledBox.Dense.Unmodifiable" parent="Widget.Material3.AutoCompleteTextView.FilledBox.Dense">
+        <!-- https://github.com/material-components/material-components-android/blob/master/docs/components/Menu.md#anatomy-and-key-properties-1 -->
+        <item name="android:textColor" tools:ignore="PrivateResource">@color/m3_sys_color_dark_on_surface</item>
+    </style>
 
-    <style name="AppWidget.CompoundButton" />
-
-    <style name="AppWidget.CompoundButton.MaterialSwitch" />
-
-    <style name="AppWidget.CompoundButton.MaterialSwitch.Unmodifiable">
+    <style name="Widget.App.CompoundButton.MaterialSwitch.Unmodifiable" parent="Widget.Material3.CompoundButton.MaterialSwitch">
         <!-- https://github.com/material-components/material-components-android/blob/master/docs/components/Switch.md -->
         <item name="android:textColor" tools:ignore="PrivateResource">@color/m3_sys_color_dark_on_background</item>
         <item name="thumbTint">@color/switch_unmodifiable</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu.Unmodifiable" parent="Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu">
+        <!-- https://github.com/material-components/material-components-android/blob/master/docs/components/TextField.md#anatomy-and-key-properties -->
+        <item name="android:textColorHint">@color/menu_label_unmodifiable</item>
+        <item name="endIconTint">@color/menu_indicator_unmodifiable</item>
+
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.AutoCompleteTextView.FilledBox.Dense.Unmodifiable
+        </item>
     </style>
 </resources>

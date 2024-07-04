@@ -28,6 +28,8 @@ import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.EncodeStrategy
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter
+import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestOptions
@@ -99,14 +101,23 @@ class CustomAppGlideModule : AppGlideModule() {
     }
 
     override fun applyOptions(context: Context, builder: GlideBuilder) {
+        val app = context.applicationContext as App
+
         builder
             .setLogLevel(Log.VERBOSE)
             .setImageDecoderEnabledForBitmaps((context.applicationContext as App).useImageDecoder)
             .setDefaultRequestOptions {
                 RequestOptions().diskCacheStrategy(CustomDiskCacheStrategy)
             }
-            .setIsActiveResourceRetentionAllowed(
-                (context.applicationContext as App).isActiveResourceRetentionAllowed
+            .setIsActiveResourceRetentionAllowed(app.isActiveResourceRetentionAllowed)
+            .setBitmapPool(
+                app.bitmapPoolBytes.let { bitmapPoolBytes ->
+                    if (bitmapPoolBytes == 0L) {
+                        BitmapPoolAdapter()
+                    } else {
+                        LruBitmapPool(bitmapPoolBytes)
+                    }
+                }
             )
     }
 }

@@ -108,7 +108,7 @@
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switch_use_image_decoder"
-        style="@style/AppWidget.CompoundButton.MaterialSwitch.Unmodifiable"
+        style="@style/Widget.App.CompoundButton.MaterialSwitch.Unmodifiable"
         android:text="Use ImageDecoder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switch_active_resource_retention_allowed"
-        style="@style/AppWidget.CompoundButton.MaterialSwitch.Unmodifiable"
+        style="@style/Widget.App.CompoundButton.MaterialSwitch.Unmodifiable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ActiveResourceRetentionAllowed"
@@ -132,14 +132,33 @@
         android:forceHasOverlappingRendering="false"
         tools:ignore="HardcodedText" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/menu_bitmap_pool_size"
+        style="@style/Widget.App.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu.Unmodifiable"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Bitmap pool size"
+        app:layout_constraintTop_toBottomOf="@id/flow_glide_options"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/menu_bitmap_pool_size_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            tools:text="32 MB" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_clear_image_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Set null to ImageView"
         android:forceHasOverlappingRendering="false"
-        app:layout_constraintTop_toBottomOf="@id/flow_glide_options"
-        app:layout_constraintStart_toStartOf="@id/flow_glide_options"
+        app:layout_constraintTop_toBottomOf="@id/menu_bitmap_pool_size"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="HardcodedText" />
 
     <androidx.constraintlayout.helper.widget.Flow

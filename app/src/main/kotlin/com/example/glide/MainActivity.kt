@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             if (value) {
                 binding.switchUseImageDecoder.isEnabled = false
                 binding.switchActiveResourceRetentionAllowed.isEnabled = false
+                binding.menuBitmapPoolSize.isEnabled = false
             }
         }
 
@@ -116,6 +117,33 @@ class MainActivity : AppCompatActivity() {
         binding.switchActiveResourceRetentionAllowed.setOnCheckedChangeListener { _, isChecked ->
             log("activeResourceRetentionAllowed $isChecked")
             (application as App).isActiveResourceRetentionAllowed = isChecked
+        }
+
+        binding.menuBitmapPoolSizeText.apply {
+            val bitmapPoolSizeMap = mapOf(
+                "0 MB" to 0L,
+                "1 MB" to (1L shl 20),
+                "2 MB" to (2L shl 20),
+                "4 MB" to (4L shl 20),
+                "8 MB" to (8L shl 20),
+                "16 MB" to (16L shl 20),
+                "32 MB" to (32L shl 20),
+                "64 MB" to (64L shl 20),
+            )
+
+            setSimpleItems(bitmapPoolSizeMap.keys.toTypedArray())
+
+            val app = application as App
+            bitmapPoolSizeMap
+                .firstNotNullOf { if (it.key == "32 MB") it else null }
+                .let {
+                    setText(it.key, false)
+                    app.bitmapPoolBytes = it.value
+                }
+
+            setOnItemClickListener { _, _, position, _ ->
+                app.bitmapPoolBytes = bitmapPoolSizeMap.asSequence().drop(position).first().value
+            }
         }
 
         binding.buttonClearImageView.setOnClickListener {
