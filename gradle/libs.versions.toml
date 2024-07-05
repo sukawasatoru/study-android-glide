@@ -13,7 +13,7 @@ exoplayer = "2.19.1"
 glide = "4.15.1"
 hilt = "2.48.1"
 kotlin = "2.0.0"
-kotlinx-coroutine = "1.7.3"
+kotlinx-coroutine = "1.8.1"
 okhttp = "4.11.0"
 protobuf = "3.22.3"
 
