@@ -33,7 +33,7 @@ accompanist-swipeRefresh = { module = "com.google.accompanist:accompanist-swiper
 android-desugarJdkLibs = "com.android.tools:desugar_jdk_libs:2.0.4"
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-benchmark = "androidx.benchmark:benchmark-macro-junit4:1.2.4"
-androidx-compose-bom = "androidx.compose:compose-bom:2024.05.00"
+androidx-compose-bom = "androidx.compose:compose-bom:2024.06.00"
 androidx-compose-uiTooling.module = "androidx.compose.ui:ui-tooling"
 androidx-compose-material-material.module = "androidx.compose.material:material"
 androidx-compose-material-iconsCore.module = "androidx.compose.material:material-icons-core"
